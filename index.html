@@ -1,47 +1,140 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ship Cargo - Track Your Shipment</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Ship Cargo - Tracking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #003366;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+    }
+    .btn {
+      background: #003366;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      cursor: pointer;
+    }
+    .tracking-info {
+      margin-top: 2rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 0.75rem;
+      text-align: left;
+    }
+    th {
+      background: #eee;
+    }
+    .hidden {
+      display: none;
+    }
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>Ship Cargo - Track Your Package</h1>
+  </header>
   <div class="container">
-    <img src="logo.png" alt="Ship Cargo Logo" class="logo"/>
-    <h1>Ship Cargo Tracking</h1>
-    <p>Enter your tracking code below to view shipment details.</p>
+    <div class="form-group">
+      <label for="trackingCode">Enter your tracking code:</label>
+      <input type="text" id="trackingCode" placeholder="e.g. 539667479" />
+    </div>
+    <button class="btn" onclick="checkTracking()">Track</button>
+    <p id="error" class="error hidden">Invalid tracking code. Please try again.</p>
 
-    <input type="text" id="trackingInput" placeholder="Enter Tracking Code" />
-    <button onclick="trackShipment()">Track</button>
-    <p id="error" class="error"></p>
-
-    <div id="shipmentDetails" class="hidden">
-      <h2>Shipment Information</h2>
-      <ul>
-        <li><strong>Shipper:</strong> Gabriela Mendez, Accra, Ghana (<a href="mailto:gabriellamendez180@gmail.com">gabriellamendez180@gmail.com</a>)</li>
-        <li><strong>Receiver:</strong> Roland Herbert DeLucca, JR.<br/>480 Georgetown Road, Clarksville, TN 37043, USA<br/>Phone: 931-800-7976</li>
-        <li><strong>Status:</strong> 🔴 Shipment on Hold – Item currently in Nigeria</li>
-        <li><strong>Expected Delivery Date:</strong> July 25, 2025</li>
-        <li><strong>Shipment Route:</strong> Ghana → Nigeria → Belgium → Ohio → Tennessee</li>
-      </ul>
-
-      <h3>Shipment History</h3>
-      <ul>
-        <li>✅ July 15, 2025, 7:00 AM – Item received – Accra, Ghana</li>
-        <li>✅ July 15, 2025, 7:45 AM – Scanned at ACC-SORT001 | Accra Sorting Hub</li>
-        <li>📦 July 15, 2025, 8:20 AM – Departed sorting facility</li>
-        <li>❗ July 15, 2025, 4:30 PM – Arrived in Lagos, Nigeria – Shipment on hold until $300 is paid</li>
-      </ul>
-
-      <h3>Proof of Package</h3>
-      <img src="proof.jpg" alt="Proof of Package" class="proof-img"/>
-
-      <h3>Contact</h3>
-      <p>Email: <a href="mailto:shipcarg008@gmail.com">shipcarg008@gmail.com</a></p>
+    <div id="trackingInfo" class="tracking-info hidden">
+      <h2>Shipment History</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Date & Time</th>
+            <th>Status</th>
+            <th>Location</th>
+            <th>Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>July 15, 2025, 7:00 AM</td>
+            <td>Item received</td>
+            <td>Accra, Ghana</td>
+            <td>✅ Received</td>
+          </tr>
+          <tr>
+            <td>July 15, 2025, 7:45 AM</td>
+            <td>Scanned at ACC-SORT001 | Accra Sorting Hub</td>
+            <td>Accra, Ghana</td>
+            <td>✅ Scanned</td>
+          </tr>
+          <tr>
+            <td>July 15, 2025, 8:20 AM</td>
+            <td>Departed sorting facility</td>
+            <td>Accra, Ghana</td>
+            <td>📦 In Transit</td>
+          </tr>
+          <tr>
+            <td>July 15, 2025, 4:30 PM</td>
+            <td>Item arrived</td>
+            <td>Lagos, Nigeria</td>
+            <td>❗ Shipment on hold until $300 is paid</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
+  <script>
+    function checkTracking() {
+      const code = document.getElementById("trackingCode").value.trim();
+      const validCode = "539667479";
+      const errorDiv = document.getElementById("error");
+      const trackingInfo = document.getElementById("trackingInfo");
 
-  <script src="script.js"></script>
+      if (code === validCode) {
+        errorDiv.classList.add("hidden");
+        trackingInfo.classList.remove("hidden");
+      } else {
+        errorDiv.classList.remove("hidden");
+        trackingInfo.classList.add("hidden");
+      }
+    }
+  </script>
 </body>
 </html>
