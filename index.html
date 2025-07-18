@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ship Cargo - Track Your Shipment</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" alt="Ship Cargo Logo" class="logo"/>
+    <h1>Ship Cargo Tracking</h1>
+    <p>Enter your tracking code below to view shipment details.</p>
+
+    <input type="text" id="trackingInput" placeholder="Enter Tracking Code" />
+    <button onclick="trackShipment()">Track</button>
+    <p id="error" class="error"></p>
+
+    <div id="shipmentDetails" class="hidden">
+      <h2>Shipment Information</h2>
+      <ul>
+        <li><strong>Shipper:</strong> Gabriela Mendez, Accra, Ghana (<a href="mailto:gabriellamendez180@gmail.com">gabriellamendez180@gmail.com</a>)</li>
+        <li><strong>Receiver:</strong> Roland Herbert DeLucca, JR.<br/>480 Georgetown Road, Clarksville, TN 37043, USA<br/>Phone: 931-800-7976</li>
+        <li><strong>Status:</strong> 🔴 Shipment on Hold – Item currently in Nigeria</li>
+        <li><strong>Expected Delivery Date:</strong> July 25, 2025</li>
+        <li><strong>Shipment Route:</strong> Ghana → Nigeria → Belgium → Ohio → Tennessee</li>
+      </ul>
+
+      <h3>Shipment History</h3>
+      <ul>
+        <li>✅ July 15, 2025, 7:00 AM – Item received – Accra, Ghana</li>
+        <li>✅ July 15, 2025, 7:45 AM – Scanned at ACC-SORT001 | Accra Sorting Hub</li>
+        <li>📦 July 15, 2025, 8:20 AM – Departed sorting facility</li>
+        <li>❗ July 15, 2025, 4:30 PM – Arrived in Lagos, Nigeria – Shipment on hold until $300 is paid</li>
+      </ul>
+
+      <h3>Proof of Package</h3>
+      <img src="proof.jpg" alt="Proof of Package" class="proof-img"/>
+
+      <h3>Contact</h3>
+      <p>Email: <a href="mailto:shipcarg008@gmail.com">shipcarg008@gmail.com</a></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
