@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Track Shipment - Ship Cargo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Ship Cargo</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="track.html">Track</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>Enter Tracking Code</h2>
+    <input type="text" id="trackingCodeInput" placeholder="Enter tracking code">
+    <button onclick="checkTracking()">Track</button>
+
+    <div id="trackingInfo" style="display:none;">
+      <h3>Shipment Details</h3>
+      <p><strong>Status:</strong> 🔴 Shipment on Hold – Item currently in Nigeria</p>
+      <p><strong>Current Location:</strong> Lagos, Nigeria</p>
+      <p><strong>Shipper:</strong> Gabriela Mendez – Accra, Ghana (<a href="mailto:gabriellamendez180@gmail.com">gabriellamendez180@gmail.com</a>)</p>
+      <p><strong>Receiver:</strong> Roland Herbert DeLucca, JR., 480 Georgetown Road, Clarksville, Tennessee 37043, USA<br>
+         <strong>Phone:</strong> 931-800-7976</p>
+      <p><strong>Expected Delivery Date:</strong> July 25, 2025</p>
+      
+      <h4>Shipment History</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Date & Time</th>
+            <th>Location</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>July 15, 2025, 7:00 AM</td><td>Accra, Ghana</td><td>✅ Item received</td></tr>
+          <tr><td>July 15, 2025, 7:45 AM</td><td>ACC-SORT001 | Accra Sorting Hub</td><td>✅ Scanned</td></tr>
+          <tr><td>July 15, 2025, 8:20 AM</td><td>Accra, Ghana</td><td>📦 In Transit</td></tr>
+          <tr><td>July 15, 2025, 4:30 PM</td><td>Lagos, Nigeria</td><td>❗ Shipment on hold until $300 is paid</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Proof of Package</h4>
+      <img src="proof.jpg" alt="Proof of Package" class="proof-img">
+    </div>
+  </main>
+
+  <script>
+    function checkTracking() {
+      const input = document.getElementById("trackingCodeInput").value.trim();
+      const trackingInfo = document.getElementById("trackingInfo");
+      if (input === "539667479") {
+        trackingInfo.style.display = "block";
+      } else {
+        alert("Tracking code not found.");
+      }
+    }
+  </script>
+</body>
+</html>
