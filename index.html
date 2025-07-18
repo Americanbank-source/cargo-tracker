@@ -2,140 +2,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Ship Cargo - Track Shipment</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      padding: 20px;
-      color: #333;
-    }
-
-    h1 {
-      text-align: center;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background-color: #fff;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    #trackingForm {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    input[type="text"] {
-      padding: 10px;
-      width: 70%;
-      font-size: 16px;
-    }
-
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .info, .history {
-      margin-top: 20px;
-      display: none;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-
-    th, td {
-      padding: 10px;
-      border: 1px solid #ccc;
-      text-align: left;
-    }
-
-    .proof-img {
-      margin-top: 20px;
-      text-align: center;
-    }
-
-    .proof-img img {
-      max-width: 100%;
-      height: auto;
-      border: 2px solid #333;
-    }
-
-    .status {
-      font-weight: bold;
-      font-size: 18px;
-      color: red;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ship Cargo – Home</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>📦 Ship Cargo Tracking</h1>
-    <form id="trackingForm">
-      <input type="text" id="trackingCode" placeholder="Enter your tracking code..." required>
-      <button type="submit">Track</button>
-    </form>
+  <header>
+    <img src="logo.png" alt="Ship Cargo Logo" class="logo"/>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="track.html">Track</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <div class="info" id="shipmentInfo">
-      <p><strong>Status:</strong> <span class="status">🔴 Shipment on Hold – Item currently in Nigeria</span></p>
-      <p><strong>Current Location:</strong> Nigeria</p>
-      <p><strong>Expected Delivery Date:</strong> July 25, 2025</p>
+  <main>
+    <section class="hero">
+      <h1>Welcome to Ship Cargo</h1>
+      <p>Your trusted partner for international delivery and tracking.</p>
+    </section>
+  </main>
 
-      <p><strong>Shipper:</strong> Gabriela Mendez, Accra, Ghana (<a href="mailto:gabriellamendez180@gmail.com">gabriellamendez180@gmail.com</a>)</p>
-      <p><strong>Recipient:</strong> Roland Herbert DeLucca, JR.<br>
-         480 Georgetown Road, Clarksville, Tennessee 37043, USA<br>
-         Phone: 931-800-7976
-      </p>
-
-      <div class="history">
-        <h3>📜 Shipment History</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Date & Time</th>
-              <th>Location</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>July 15, 2025, 7:00 AM</td><td>Accra, Ghana</td><td>✅ Item received</td></tr>
-            <tr><td>July 15, 2025, 7:45 AM</td><td>ACC-SORT001 | Accra Sorting Hub</td><td>✅ Scanned</td></tr>
-            <tr><td>July 15, 2025, 8:20 AM</td><td>In Transit</td><td>📦 Departed sorting facility</td></tr>
-            <tr><td>July 15, 2025, 4:30 PM</td><td>Lagos, Nigeria</td><td>❗ Shipment on hold – $300 payment required</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="proof-img">
-        <h3>📸 Proof of Package</h3>
-        <img src="proof.jpg" alt="Proof of package">
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const form = document.getElementById("trackingForm");
-    const input = document.getElementById("trackingCode");
-    const info = document.getElementById("shipmentInfo");
-
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-      const code = input.value.trim();
-      if (code === "539667479") {
-        info.style.display = "block";
-      } else {
-        alert("Tracking code not found. Please check and try again.");
-        info.style.display = "none";
-      }
-    });
-  </script>
+  <footer>
+    <p>&copy; 2025 Ship Cargo. All rights reserved.</p>
+  </footer>
 </body>
 </html>
